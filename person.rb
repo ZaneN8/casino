@@ -1,12 +1,11 @@
-require_relative 'wallet'
+# require_relative 'wallet'
 # require_relative 'casino'
 
 class Person
-  attr_accessor :users_name
+  attr_accessor :name
 
-  def initialize(users_name)
-    @users_name = users_name
-    puts "#{users_name}"
+  def initialize(name)
+    @name = name
   end
 
 end
