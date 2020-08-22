@@ -14,7 +14,7 @@ class Dice
   end
   
   def show_sum
-    print "Sum of dice is ", @die1 + @die2, ".\n"
+    print "Sum of dice is ", @die1 + @die2 + @die3, ".\n"
   end 
  end
 

@@ -12,46 +12,44 @@ require_relative 'person'
 require_relative 'card'
 require_relative 'deck'
 require_relative 'dice'
-require_relative 'high_low'
+# require_relative 'high_low'
 require_relative 'slots' # something might be wrong and it isntantly goes to Slots
 require_relative 'wallet'
 
 # class Casino
 
-#   def initialize
-#   end
-  # def casino
-  # enter_casino
-  # game_options
-  # end
+#   attr_accessor :wallet
 
+#   def initialize
+#     enter_casino
+#   end
 
   def enter_casino
     puts "Welcome to DevPoint Lab Casino!"
     puts "Enter your name."
-    puts "> "
+    puts 
     entering_users_name = gets.strip
     puts "Welcome #{entering_users_name}!"
     @new_player1 = Person.new(entering_users_name) #, : => Wallet.new(1000)}
     puts "How much would you like to play with today?"
     starting_amount = gets.chomp.to_i
-    wallet1 = Wallet.new(starting_amount)
-    puts "Well #{@new_player1.users_name} #{wallet1.wallet_total} is alot, good luck!"
+    @wallet1 = Wallet.new(starting_amount)
+    puts "Well #{@new_player1.users_name} #{@wallet1.wallet_total} is alot, good luck!"
     game_options
   end
 
 
 
   def game_options
-    puts "#{@new_player1.users_name} what game would you like to play?"
-    puts "1 for high low 2 for slots or 3 to exit the casino"
+    puts "Okay #{@new_player1.users_name}, what game would you like to play?"
+    puts "1 for High Low 2 for Slots or 3 to exit the casino"
     pick_game = gets.chomp.to_i 
     case pick_game
     when 1
-     puts "high_low"
+     puts "High_Low"
      game_options
     when 2
-      puts "slots"
+      puts "Slots"
       Slots.new
     when 3
       puts "Goodbye! And thanks for all the money"
@@ -63,3 +61,5 @@ require_relative 'wallet'
   end
 
 enter_casino
+
+# end
