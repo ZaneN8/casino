@@ -25,36 +25,41 @@ require_relative 'wallet'
   # game_options
   # end
 
+
   def enter_casino
     puts "Welcome to DevPoint Lab Casino!"
     puts "Enter your name."
-    entering_users_name = gets.chomp
-    new_player1 = Person.new(entering_users_name) #, : => Wallet.new(1000)}
-    puts "Welcome #{new_player1.name}!"
-    # puts "How much would you like to play with today?"
-    # entering_wallet_total = gets.chomp.to_i
-    wallet_total = Wallet.new(100)
+    puts "> "
+    entering_users_name = gets.strip
+    puts "Welcome #{entering_users_name}!"
+    @new_player1 = Person.new(entering_users_name) #, : => Wallet.new(1000)}
+    puts "How much would you like to play with today?"
+    starting_amount = gets.chomp.to_i
+    wallet1 = Wallet.new(starting_amount)
+    puts "Well #{@new_player1.users_name} #{wallet1.wallet_total} is alot, good luck!"
     game_options
   end
 
 
 
   def game_options
-    puts "What would you like to play?"
-    puts "1 for high low 2 for slots"
-    pick_game = gets.chomp.to_i - 1
+    puts "#{@new_player1.users_name} what game would you like to play?"
+    puts "1 for high low 2 for slots or 3 to exit the casino"
+    pick_game = gets.chomp.to_i 
     case pick_game
-      when 1
-        # high_low
-      when 2
-        Slots.new
-      when 3
-        puts "Goodbye! and thanks for all the money"
-        exit
-      else
-        puts "That is not an option, #{users_name}, try again! \n"
-        game_options
-      end
+    when 1
+     puts "high_low"
+     game_options
+    when 2
+      puts "slots"
+      Slots.new
+    when 3
+      puts "Goodbye! And thanks for all the money"
+      exit
+    else
+      puts "That is not an option, #{@new_player1.users_name}, try again! \n"
+      game_options
+    end
   end
 
 enter_casino

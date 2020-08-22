@@ -2,10 +2,10 @@
 # require_relative 'casino'
 
 class Person
-  attr_accessor :name
+  attr_accessor :users_name
 
-  def initialize(name)
-    @name = name
+  def initialize(users_name)
+    @users_name = users_name
   end
 
 end

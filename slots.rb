@@ -1,5 +1,6 @@
 require_relative 'dice'
 require_relative 'person'
+require_relative 'wallet'
 
 class Slots
   

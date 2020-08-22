@@ -12,7 +12,8 @@ class Wallet
   attr_accessor :wallet_total
 
   def initialize(wallet_total)
-  @wallet_total = wallet_total
+  # @wallet_total = wallet_total
+    1000 = wallet_total
   end
 
 end
