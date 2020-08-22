@@ -3,8 +3,9 @@ require_relative 'person'
 require_relative 'wallet'
 
 class Slots
-  # attr_accessor :wallet
   
+
+
   def initialize
     start_slots
     spin_slots
@@ -14,15 +15,10 @@ class Slots
   
   def start_slots
     puts "How much do you want to bet?"
-    # puts @wallet1.wallet_total # get from wallet
-    @cash = 100
-    puts @cash
-    # @wallet1.wallet_total -= 100 # get from wallet
+    puts @@wallet1.wallet_total 
     @slots_bet = gets.chomp.to_i
-    @cash -= @slots_bet
-    # puts "you have #{@wallet1.wallet_total} left in wallet" # gets from wallet
-    puts "you have #{@cash} left in wallet" # gets from wallet
-
+    Wallet.current_wallet -= @slots_bet # Needs to take away
+    puts "you have #{@@wallet1.wallet_total} left in wallet"
   end
 
   def spin_slots
@@ -45,10 +41,8 @@ class Slots
         puts "Better luck next time!"
       end
       puts "you won $#{winnings}"
-      # winnings += @wallet1.wallet_total #add to wallet? DOes not work
-      new_cash_total = winnings + @cash  #add to wallet? DOes not work
-      # puts "#{@wallet1.wallet_total} is your new total" #add to wallet?
-      puts "$#{new_cash_total} is your new total" #add to wallet?
+      @@wallet1.wallet_total = winnings + @@wallet1.wallet_total # Needs to add winnings to wallet
+      puts "#{@@wallet1.wallet_total} is your new total"
   end
   
   def play_slots_again
@@ -63,4 +57,5 @@ class Slots
   end
 
 end
+
 # Slots.new

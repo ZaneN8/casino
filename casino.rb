@@ -33,8 +33,8 @@ require_relative 'wallet'
     @new_player1 = Person.new(entering_users_name) #, : => Wallet.new(1000)}
     puts "How much would you like to play with today?"
     starting_amount = gets.chomp.to_i
-    @wallet1 = Wallet.new(starting_amount)
-    puts "Well #{@new_player1.users_name} #{@wallet1.wallet_total} is alot, good luck!"
+    @@wallet1 = Wallet.new(starting_amount)
+    puts "Well #{@new_player1.users_name} #{@@wallet1.wallet_total} is alot, good luck!"
     game_options
   end
 
