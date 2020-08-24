@@ -27,27 +27,24 @@ class High_Low
 
   def hi_lo_game
      deal_hi_lo = Deck.new
-     @dealt_card = deal_hi_lo.cards.sample.rank
-    puts "Here is #{@dealt_card}"
+     dealt_card = deal_hi_lo.cards.sample.rank
+    puts "Here is #{dealt_card}"
     puts "Do you think the next card will be higher 'H' or lower 'L' than that card?"
-    @player_guess = gets.strip.upcase
-    puts "You guess #{@player_guess}"
-    @compare_card = deal_hi_lo.cards.sample.rank
-    puts "Comparing card #{@compare_card}"
+    player_guess = gets.strip.upcase
+    puts "You guess #{player_guess}"
+    compare_card = deal_hi_lo.cards.sample.rank
+    puts "Comparing card #{compare_card}"
     #case @player_guess
-    if @player_guess == "L" && @compare_card < @dealt_card
+    if player_guess == "L" && compare_card < dealt_card
       puts "You win!" 
       # if compare_card < dealt_card
       @cash << @bet_play_field.to_i * 2
-    elsif @player_guess == "H" && @compare_card > @dealt_card
+    elsif player_guess == "H" && compare_card > dealt_card
       puts "You win" 
       @cash << @bet_play_field.to_i * 2
-    else @player_guess == "H" && @compare_card < @dealt_card || @player_guess == "L" && @compare_card > @dealt_card
+      else #player_guess == "H" && @compare_card < @dealt_card || player_guess == "L" && @compare_card > @dealt_card
       puts "LOSER"
-        #@bankroll << @bet_play_field
     end
-    # start_hi_lo
-    # hi_lo_game
   end
   def play_hi_lo_again
     puts "Do you want to play again? (y/n)"
