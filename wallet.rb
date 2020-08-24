@@ -10,14 +10,14 @@
 
 class Wallet
   attr_accessor :wallet_total
-  @@wallet_total = []
+  @@wallet_total
 
   def initialize(wallet_total)
   @@wallet_total = wallet_total
   end
  
-  def self.current_wallet
-    @@wallet_total
-  end
+  # def self.current_wallet
+  #   @@wallet_total
+  # end
 
 end

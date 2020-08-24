@@ -10,15 +10,16 @@ class High_Low
 
   def start_high_low
     puts "How much do you want to bet?"
-      @cash = 100 # get from wallet
-      @slots_bet = gets.chomp.to_i
-      @cash -= @slots_bet # get from wallet
-      puts "#{@cash}" # gets from wallet
+    puts @@wallet1.wallet_total 
+    @hilow_bet = gets.chomp.to_i
+    @@wallet1.wallet_total -= @hilow_bet # Needs to take away
+    puts "you have #{@@wallet1.wallet_total} left in wallet"
   end
 
   def high_low_game
     d = Deck.new
-    d
+    
+
   end
 
   def play_high_low_again

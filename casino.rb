@@ -60,6 +60,8 @@ require_relative 'wallet'
     end
   end
 
+  def 
+
 enter_casino
 
 # end
