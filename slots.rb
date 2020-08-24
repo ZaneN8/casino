@@ -3,8 +3,6 @@ require_relative 'person'
 require_relative 'wallet'
 
 class Slots
-  
-
 
   def initialize
     start_slots
@@ -43,11 +41,13 @@ class Slots
         puts "Better luck next time!"
         puts 
       end
-      @@wallet1.wallet_total = winnings + @@wallet1.wallet_total # Needs to add winnings to wallet
+      puts "you won $#{winnings}"
+      # @@wallet1.wallet_total = winnings + @@wallet1.wallet_total # Needs to add winnings to wallet
       puts "#{@@wallet1.wallet_total} is your new total"
       if @@wallet1.wallet_total == 0 
       puts "Two men approach you. 'We see you don't have any more money. Leave before we have to forcefully escort you out.'"
       Exit
+      end
       if @@wallet1.wallet_total < 0
       puts "Two men approach you. 'Looks like this chump doesn't have our money' one says , 'Take him out back and teach him a lesson...'"
       Exit
@@ -67,5 +67,3 @@ class Slots
   end
 
 end
-
-# Slots.new

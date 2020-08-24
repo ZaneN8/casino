@@ -1,35 +1,56 @@
 require_relative 'card'
 require_relative 'deck'
-
-class High_Low
-
-
+require_relative 'wallet'
+class Hi_Lo
   def initilize
-    start_high_low
+    @bet_play_field = []
+    start_hi_lo
+    hi_lo_game
+    @cash = 1000
   end
 
-  def start_high_low
-    puts "How much do you want to bet?"
-    puts @@wallet1.wallet_total 
-    @hilow_bet = gets.chomp.to_i
-    @@wallet1.wallet_total -= @hilow_bet # Needs to take away
-    puts "you have #{@@wallet1.wallet_total} left in wallet"
+ @cash = 1000
+ def start_hi_lo
+    puts "Welcome to Hi/Lo. Just bet whether the next card is" 
+    puts "Higher or lower than the one dealt."
+    puts "How much do you want to bet, table limit is $50?"
+      # @cash = 1000 # get from wallet
+      @player_bet = gets.chomp.to_i
+      case @player_bet
+      when @player_bet < @cash && @player_bet <= 50
+        @bet_play_field << @player_bet
+      when @player_bet > 50 || @player_bet > @cash
+        puts "That bet is too big, try again."
+      end
+      # get from wallet
+      puts "#{@cash -= @player_bet} left in your wallet" # gets from wallet
   end
 
-  def high_low_game
-    d = Deck.new
-    
-
-  end
-
-  def play_high_low_again
-    puts "Do you want to play again? (y/n)"
-    what_to_do_next = gets.chomp
-    case what_to_do_next 
-    when "y"
-      High_Low.new
-    when "n"
-      game_options # Needs to go to menu
+  def hi_lo_game
+     deal_hi_lo = Deck.new
+     @dealt_card = deal_hi_lo.cards.sample.rank
+    puts "Here is #{@dealt_card}"
+    puts "Do you think the next card will be higher 'H' or lower 'L' than that card?"
+    @player_guess = gets.strip.upcase
+    puts "You guess #{@player_guess}"
+    @compare_card = deal_hi_lo.cards.sample.rank
+    puts "Comparing card #{@compare_card}"
+    #case @player_guess
+    if @player_guess == "L" && @compare_card < @dealt_card
+      puts "You win!" 
+      # if compare_card < dealt_card
+      @cash << @bet_play_field.to_i * 2
+    elsif @player_guess == "H" && @compare_card > @dealt_card
+      puts "You win" 
+      @cash << @bet_play_field.to_i * 2
+    else @player_guess == "H" && @compare_card < @dealt_card || @player_guess == "L" && @compare_card > @dealt_card
+      puts "LOSER"
+        #@bankroll << @bet_play_field
     end
+    # start_hi_lo
+    # hi_lo_game
+  end
+  # start_hi_lo
+  # hi_lo_game
 
 end

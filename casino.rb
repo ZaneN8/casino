@@ -12,8 +12,8 @@ require_relative 'person'
 require_relative 'card'
 require_relative 'deck'
 require_relative 'dice'
-# require_relative 'high_low'
-require_relative 'slots' # something might be wrong and it isntantly goes to Slots
+require_relative 'high_low'
+require_relative 'slots'
 require_relative 'wallet'
 
 # class Casino
@@ -46,8 +46,8 @@ require_relative 'wallet'
     pick_game = gets.chomp.to_i 
     case pick_game
     when 1
-     puts "High_Low"
-     game_options
+      puts "High_Low"
+      High_Low.new
     when 2
       puts "Slots"
       Slots.new
@@ -60,8 +60,6 @@ require_relative 'wallet'
     end
   end
 
-  def 
 
 enter_casino
 
-# end

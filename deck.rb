@@ -32,7 +32,14 @@ class Deck
        puts "#{card.rank} #{card.suit} (#{card.color})"
      end
    end
+
+   def random_card
+    new_random_card = display_cards.sample
+    p "#{new_random_card}"
+  end
+
  end
 
 # Instantiate a new deck
-d = Deck.new
+# d = Deck.new
+# d.random_card
