@@ -15,7 +15,7 @@ class Slots
     puts "How much do you want to bet?"
     puts @@wallet1.wallet_total 
     @slots_bet = gets.chomp.to_i
-    @@wallet1.wallet_total -= @slots_bet # Needs to take away
+    # @@wallet1.wallet_total -= @slots_bet # Needs to take away
     puts "you have #{@@wallet1.wallet_total} left in wallet"
   end
 
@@ -42,16 +42,17 @@ class Slots
         puts 
       end
       puts "you won $#{winnings}"
+      # @@wallet1.wallet_total += winnings
       # @@wallet1.wallet_total = winnings + @@wallet1.wallet_total # Needs to add winnings to wallet
       puts "#{@@wallet1.wallet_total} is your new total"
-      if @@wallet1.wallet_total == 0 
-      puts "Two men approach you. 'We see you don't have any more money. Leave before we have to forcefully escort you out.'"
-      Exit
-      end
-      if @@wallet1.wallet_total < 0
-      puts "Two men approach you. 'Looks like this chump doesn't have our money' one says , 'Take him out back and teach him a lesson...'"
-      Exit
-      end
+      # if @@wallet1.wallet_total = 0 
+      # puts "Two men approach you. 'We see you don't have any more money. Leave before we have to forcefully escort you out.'"
+      # Exit
+      # end
+      # if @@wallet1.wallet_total < 0
+      # puts "Two men approach you. 'Looks like this chump doesn't have our money' one says , 'Take him out back and teach him a lesson...'"
+      # Exit
+      # end
 
   end
   
@@ -62,7 +63,7 @@ class Slots
     when "y"
       Slots.new
     when "n"
-      # game_options # Needs to go to menu
+      game_options # Needs to go to menu
     end
   end
 

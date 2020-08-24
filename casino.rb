@@ -41,16 +41,18 @@ require_relative 'wallet'
 
 
   def game_options
-    puts "Okay #{@new_player1.users_name}, what game would you like to play?"
+    puts "What game would you like to play?"
     puts "1 for High Low 2 for Slots or 3 to exit the casino"
     pick_game = gets.chomp.to_i 
     case pick_game
     when 1
       puts "High_Low"
       High_Low.new
+      game_options
     when 2
       puts "Slots"
       Slots.new
+      game_options
     when 3
       puts "Goodbye! And thanks for all the money"
       exit
